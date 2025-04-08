@@ -27,7 +27,7 @@ public class VmAllocationComparison {
             List<Vm> vmlist = new ArrayList<>();
             for (int i = 0; i < 4; i++) {
                 Vm vm = new Vm(i, broker.getId(), 1000, 1, 512, 1000, 1000,
-                        "Xen", new CloudletSchedulerTimeShared()); // or CloudletSchedulerSpaceShared()
+                        "Xen", new CloudletSchedulerSpaceShared()); // or CloudletSchedulerSpaceShared()
                 vmlist.add(vm);
             }
 
@@ -65,7 +65,7 @@ public class VmAllocationComparison {
 
             Host host = new Host(i, new RamProvisionerSimple(2048),
                     new BwProvisionerSimple(10000), 1000000, peList,
-                    new VmSchedulerTimeShared(peList)); // Try VmSchedulerSpaceShared for FCFS
+                    new VmSchedulerSpaceShared(peList)); // Try VmSchedulerSpaceShared for FCFS
 
             hostList.add(host);
         }
