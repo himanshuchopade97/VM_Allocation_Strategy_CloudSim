@@ -1,0 +1,24 @@
+name: CloudSim Simulation
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Compile CloudSim code
+        run: javac -cp ".:libs/cloudsim-3.0.3.jar" src/cloudsim/simulation/VmAllocationComparison.java
+
+      - name: Run Simulation
+        run: java -cp ".:libs/cloudsim-3.0.3.jar:src" cloudsim.simulation.VmAllocationComparison
