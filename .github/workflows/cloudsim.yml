@@ -19,11 +19,19 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
     
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+    - name: Create lib directory
+      run: mkdir -p lib
+    
+    - name: Copy CloudSim JAR to lib directory
+      run: cp libs/cloudsim-3.0.3.jar lib/
+    
+    - name: Compile Java source files
+      run: |
+        mkdir -p build
+        javac -cp "lib/*" -d build src/cloudsim/simulation/VMAllocationComparison.java
     
     - name: Run VM Scheduling Simulations
-      run: java -cp target/cloudsim-project-1.0.jar:target/libs/* cloudsim.simulation.VMAllocationComparison
+      run: java -cp "build:lib/*" cloudsim.simulation.VMAllocationComparison
     
     - name: Upload Simulation Logs
       uses: actions/upload-artifact@v4
