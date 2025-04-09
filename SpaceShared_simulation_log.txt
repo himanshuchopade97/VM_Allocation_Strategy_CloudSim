@@ -1,0 +1,24 @@
+====== SpaceShared VM SCHEDULING SIMULATION LOG ======
+
+SIMULATION CONFIGURATION:
+- Scheduling Strategy: SpaceShared
+- Number of VMs: 4
+- Number of Cloudlets: 10
+
+CLOUDLET EXECUTION RESULTS:
+Cloudlet   Status     VM ID           Time            Start Time      Finish Time    
+0          SUCCESS    0               40.00           0.10            40.10          
+1          SUCCESS    1               40.00           0.10            40.10          
+2          SUCCESS    0               40.00           40.10           80.10          
+3          SUCCESS    1               40.00           40.10           80.10          
+4          SUCCESS    0               40.00           80.10           120.10         
+5          SUCCESS    1               40.00           80.10           120.10         
+6          SUCCESS    0               40.00           120.10          160.10         
+7          SUCCESS    1               40.00           120.10          160.10         
+8          SUCCESS    0               40.00           160.10          200.10         
+9          SUCCESS    1               40.00           160.10          200.10         
+
+PERFORMANCE SUMMARY:
+- Successful Cloudlets: 10/10
+- Average Execution Time: 40.0
+- Makespan (total simulation time): 200.1

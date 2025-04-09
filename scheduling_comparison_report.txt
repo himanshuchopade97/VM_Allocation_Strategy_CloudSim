@@ -1,0 +1,28 @@
+====== VM SCHEDULING STRATEGY COMPARISON REPORT ======
+
+RUNTIME COMPARISON:
+- Time-Shared Simulation Runtime: 0.167 seconds
+- Space-Shared Simulation Runtime: 0.008 seconds
+- Runtime Difference: 0.159 seconds
+- Faster Strategy: Space-Shared
+
+PERFORMANCE METRICS:
+- Time-Shared Makespan: 200.1
+- Space-Shared Makespan: 200.1
+- Makespan Difference: 0.0
+- Better Makespan: Space-Shared
+
+- Time-Shared Average Execution Time: 200.0
+- Space-Shared Average Execution Time: 40.0
+- Average Execution Time Difference: 160.0
+- Better Average Execution Time: Space-Shared
+
+CONCLUSION:
+Based on the simulation results, the Space-Shared VM scheduling strategy performs better for overall completion time (makespan).
+
+The Space-Shared strategy performs better for average cloudlet execution time.
+
+RECOMMENDATION:
+Choose scheduling strategy based on priority:
+- Use Time-Shared if average execution time is more important.
+- Use Space-Shared if overall completion time (makespan) is more important.

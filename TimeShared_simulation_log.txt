@@ -1,0 +1,24 @@
+====== TimeShared VM SCHEDULING SIMULATION LOG ======
+
+SIMULATION CONFIGURATION:
+- Scheduling Strategy: TimeShared
+- Number of VMs: 4
+- Number of Cloudlets: 10
+
+CLOUDLET EXECUTION RESULTS:
+Cloudlet   Status     VM ID           Time            Start Time      Finish Time    
+0          SUCCESS    0               200.00          0.10            200.10         
+2          SUCCESS    0               200.00          0.10            200.10         
+4          SUCCESS    0               200.00          0.10            200.10         
+6          SUCCESS    0               200.00          0.10            200.10         
+8          SUCCESS    0               200.00          0.10            200.10         
+1          SUCCESS    1               200.00          0.10            200.10         
+3          SUCCESS    1               200.00          0.10            200.10         
+5          SUCCESS    1               200.00          0.10            200.10         
+7          SUCCESS    1               200.00          0.10            200.10         
+9          SUCCESS    1               200.00          0.10            200.10         
+
+PERFORMANCE SUMMARY:
+- Successful Cloudlets: 10/10
+- Average Execution Time: 200.0
+- Makespan (total simulation time): 200.1

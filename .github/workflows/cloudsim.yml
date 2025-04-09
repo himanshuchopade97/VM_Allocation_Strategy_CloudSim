@@ -1,24 +1,43 @@
-name: CloudSim Simulation
+name: CloudSim VM Scheduling Comparison
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
 
 jobs:
-  build:
+  run-simulations:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'adopt'
-          java-version: '11'
-
-      - name: Compile CloudSim code
-        run: javac -cp ".:libs/cloudsim-3.0.3.jar" src/cloudsim/simulation/VmAllocationComparison.java
-
-      - name: Run Simulation
-        run: java -cp ".:libs/cloudsim-3.0.3.jar:src" cloudsim.simulation.VmAllocationComparison
+    - uses: actions/checkout@v2
+    
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+    
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+    
+    - name: Run VM Scheduling Simulations
+      run: java -cp target/cloudsim-project-1.0.jar:target/libs/* cloudsim.simulation.VMAllocationComparison
+    
+    - name: Upload Simulation Logs
+      uses: actions/upload-artifact@v2
+      with:
+        name: simulation-logs
+        path: |
+          TimeShared_simulation_log.txt
+          SpaceShared_simulation_log.txt
+          scheduling_comparison_report.txt
+    
+    - name: Generate Summary
+      run: |
+        echo "## VM Scheduling Simulation Results" > $GITHUB_STEP_SUMMARY
+        echo "### Time-Shared vs Space-Shared Performance" >> $GITHUB_STEP_SUMMARY
+        echo "Check the artifact logs for detailed results" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "Simulation logs and comparison report have been generated successfully." >> $GITHUB_STEP_SUMMARY
