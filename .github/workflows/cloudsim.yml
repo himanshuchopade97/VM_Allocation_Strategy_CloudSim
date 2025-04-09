@@ -49,3 +49,13 @@ jobs:
         echo "Check the artifact logs for detailed results" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "Simulation logs and comparison report have been generated successfully." >> $GITHUB_STEP_SUMMARY
+
+        - name: Save results
+        run: java -cp ".:libs/cloudsim.jar:src" cloudsim.simulation.VmAllocationComparison > results.txt
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: simulation-output
+          path: results.txt
+      
