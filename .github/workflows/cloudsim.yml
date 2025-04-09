@@ -28,10 +28,10 @@ jobs:
     - name: Compile Java source files
       run: |
         mkdir -p build
-        javac -cp "lib/*" -d build src/cloudsim/simulation/VMAllocationComparison.java
+        javac -cp "lib/*" -d build src/cloudsim/simulation/VmAllocationComparison.java
     
     - name: Run VM Scheduling Simulations
-      run: java -cp "build:lib/*" cloudsim.simulation.VMAllocationComparison
+      run: java -cp "build:lib/*" cloudsim.simulation.VmAllocationComparison
     
     - name: Upload Simulation Logs
       uses: actions/upload-artifact@v4
