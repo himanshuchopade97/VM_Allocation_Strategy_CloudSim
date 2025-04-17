@@ -64,7 +64,7 @@ public class VmAllocationComparison {
      // Create Cloudlets
      List<Cloudlet> cloudletList = new ArrayList<>();
      for (int i = 0; i < 10; i++) {
-         Cloudlet cloudlet = new Cloudlet(i, 40000, 1, 30commit0, 300,
+         Cloudlet cloudlet = new Cloudlet(i, 40000, 1, 300, 300,
                  new UtilizationModelFull(), new UtilizationModelFull(), 
                  new UtilizationModelFull());
          cloudlet.setUserId(broker.getId());
